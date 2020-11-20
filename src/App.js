@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import AppHeader from './component/AppHeader'
+import ListView from './component/listView' 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  state ={
+    countryList:[
+      {
+        id:1,
+        coutryName:'Canada',
+        date:'2020-11-18'
+      }
+    ]
+  }
+  render(){
+    return (
+      <div className="App">
+        <AppHeader />
+        <ListView countryList={this.state.countryList}/>
+      </div>
+    )
+  }
+
 }
 
 export default App;
