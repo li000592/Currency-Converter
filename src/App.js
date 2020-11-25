@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
+import Search from './component/Search'
 import AppHeader from './component/AppHeader'
 import ListView from './component/listView' 
 
@@ -17,7 +18,7 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <AppHeader />
+        <AppHeader/>
         <ListView countryList={this.state.countryList}/>
       </div>
     )

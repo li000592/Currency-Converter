@@ -1,0 +1,18 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.headerTxt{
+    font-size: 1.5rem;
+    margin:4vw;
+}
+button{
+    margin-right: 4vw;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    box-shadow: 0px 0px 10px gray;
+}
