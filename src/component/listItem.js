@@ -9,7 +9,7 @@ function ListItem(props){
                 <p className ='countryName'>Canada</p>
             </div>
 
-            <p className ='date'>2020-11-18</p>
+            <p className ='currency'>1234</p>
             
         </div>
         <div className='underline'></div>

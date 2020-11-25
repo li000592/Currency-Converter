@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import Search from './component/Search'
 import AppHeader from './component/AppHeader'
-import ListView from './component/listView' 
+import ListView from './component/listView'
+import addNewView from './component/addNewView'
 
 class App extends Component {
 
@@ -20,6 +20,7 @@ class App extends Component {
       <div className="App">
         <AppHeader/>
         <ListView countryList={this.state.countryList}/>
+        <addNewView/>
       </div>
     )
   }
