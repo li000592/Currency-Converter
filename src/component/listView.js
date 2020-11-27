@@ -8,6 +8,7 @@ function listView (){
         <ListItem />
         <ListItem />
         <ListItem />
+        <ListItem />
     </div>
 }
 

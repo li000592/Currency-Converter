@@ -8,7 +8,10 @@ header{
     font-size: 1.5rem;
     margin:4vw;
 }
-button{
+.addNewBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin:4vw;
     border: none;
     height: 3rem;

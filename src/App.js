@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import AppHeader from './component/AppHeader'
 import ListView from './component/listView'
-import addNewView from './component/addNewView'
+import FullCountryList from './component/fullCountryList'
+import { HashRouter as Router, Route} from "react-router-dom"
 
 class App extends Component {
 
@@ -17,11 +18,11 @@ class App extends Component {
   }
   render(){
     return (
-      <div className="App">
+      <Router className="App">
         <AppHeader/>
         <ListView countryList={this.state.countryList}/>
-        <addNewView/>
-      </div>
+        
+      </Router>
     )
   }
 
