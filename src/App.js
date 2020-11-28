@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import ExchangeCurrencyListPage from './components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'
 import convertMoney from './convertMoney'
 import './App.css'
+import AddCountryPage from './components/AddCurrencyPage/AddCountryPage'
+import { HashRouter as Router, Route} from "react-router-dom"
 
 const initializeRatesList = [
   {shortName: 'CAD', fullName: 'Canadian Dollar', exchangeNumber: 1.552062},
@@ -34,13 +36,23 @@ function App() {
     })
   }, [inputValue, setRatesList])
   return (
-    <div className="App">
-      <ExchangeCurrencyListPage
+    <Router className="App">
+      <Route path='/' exact >
+       <ExchangeCurrencyListPage
         ratesList={ratesList}
         setInputValue={setInputValue}
         pickedCountryList={pickedCountryList}
       />
-    </div>
+      </Route>
+
+      <Route path='/addNew'>
+        <AddCountryPage />
+      </Route>
+
+
+
+      
+    </Router>
   )
 }
 

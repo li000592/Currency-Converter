@@ -8,7 +8,7 @@ function EchangeCurrencyListPage(props) {
     return !!promise && typeof promise.then === 'function'
   }
 
-  if (props.ratesList === undefined || props.ratesList.length == 0) return null
+  if (props.ratesList === undefined || props.ratesList.length === 0) return null
 
   if (isPromise(props.ratesList)) return <p>WARN</p>
   return <div>
