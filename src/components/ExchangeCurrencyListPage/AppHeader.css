@@ -11,6 +11,8 @@ header{
 }
 .addNewBtn{
     display: flex;
+    background-color: #2357a8;
+    color: #ffffff;
     text-decoration: none;
     justify-content: center;
     align-items: center;
@@ -20,5 +22,5 @@ header{
     width: 3rem;
     border-radius: 50%;
     font-size: 2rem;
-    box-shadow: 0px 0px 10px gray;
+    box-shadow: 3px 3px 10px #b7d2e6;
 }
