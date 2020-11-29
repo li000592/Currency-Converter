@@ -1,23 +1,30 @@
+import React from 'react'
+import './CurrencyListItem.css'
+import { NavLink } from 'react-router-dom'
 
-function ListItem(props){
-    const data = props.data
-
+function CurrencyListItem(props) {
+    // onSave = (ev) =>{
+      
+    // }
     return (
-    <div className ='countainer'>
-        <div className='countryList'>
-            <div className ='countryInfo'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Twemoji2_1f1e8-1f1e6.svg" alt='countryImg'className='countryImg'/>
-                <p className ='countryName'>Canada</p>
-            </div>
+        <div className="card">
 
-            <p className ='add'>+</p>
-            
-        </div>
-        <div className='underline'></div>
+      
+        <img
+          className="avatar"
+          src=''
+          alt="avatar"
+        />
+
+      <div className ='countryName'>
+        <h3>ABC</h3>
+        <p className='fullName'>abcdef</p>
+      </div>
+
+      <NavLink to='/' className='addNewCountryBtn'>+</NavLink>
+
     </div>
-    
     )
-    
 }
 
-export default ListItem
+export default CurrencyListItem

@@ -1,11 +1,17 @@
 import React from "react";
 import Search from './Search'
+import CurrencyListItem from './CurrencyListItem'
 import "./AddCountryPage.css";
 
-function AddCountryPage() {
+function AddCountryPage(props) {
+
   return <div>
     <Search/>
-  </div>;
+    <CurrencyListItem />
+
+
+</div>
+
 }
 
 export default AddCountryPage;
