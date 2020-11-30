@@ -4,6 +4,9 @@ export async function convertMoney(shortName, setNumber) {
   const ratesList = await convertData()
   shortName = shortName.toUpperCase()
   const index = ratesList.findIndex(obj => obj.shortName === shortName)
+  if (index === -1) {
+    console.warn('FIX IT LATER')
+  }
   const percentage = setNumber / ratesList[index].exchangeNumber
   return ratesList.map(rate => {
     return {
@@ -25,9 +28,7 @@ export const convertData = async () => {
   let ratesList = await getData().then(repsonse => JSON.parse(repsonse))
   console.log(ratesList)
   const key = Object.keys(ratesList)
-  console.log(key)
   const values = Object.values(ratesList)
-  console.log(values)
   for (let i = 0; i < key.length; i++) {
     const shortName = key[i]
     newRatesList.push({
