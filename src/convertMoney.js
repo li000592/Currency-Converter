@@ -1,7 +1,7 @@
-import getDate, {getCurrenciesLongName} from './getData'
+import getData, {getCurrenciesLongName} from './getData'
 
 export async function convertMoney(shortName, setNumber) {
-  const ratesList = await convertData('')
+  const ratesList = await convertData()
   shortName = shortName.toUpperCase()
   const index = ratesList.findIndex(obj => obj.shortName === shortName)
   const percentage = setNumber / ratesList[index].exchangeNumber
@@ -14,30 +14,21 @@ export async function convertMoney(shortName, setNumber) {
   })
 }
 export const convertData = async () => {
-  const updateTime = localStorage.getItem('updateTime')
-  const dateNow = new Date()
-  const convertNow = `${dateNow.getFullYear()}-${dateNow.getMonth()}-${dateNow.getDate()}`
-  if (updateTime === convertNow) {
-    return
-  }
-  const ratesList = []
-  // get curreny full name list
-  const longNameList = await getCurrenciesLongName().symbols
-  const data = await getDate()
-  // keep update time in localStorage
-  localStorage.setItem('updateTime', data.date)
-  const key = Object.keys(data.rates)
-  const values = Object.values(data.rates)
+  let newRatesList = []
+  const currencyFullName = await getCurrenciesLongName()
+  let ratesList = await getData().then(repsonse => JSON.parse(repsonse).rates)
+  const key = Object.keys(ratesList)
+  const values = Object.values(ratesList)
   for (let i = 0; i < key.length; i++) {
     const shortName = key[i]
-    ratesList.push({
+    newRatesList.push({
       shortName: key[i],
-      fullName: longNameList[shortName],
+      fullName: currencyFullName[shortName],
       exchangeNumber: values[i],
     })
   }
 
-  return ratesList
+  return newRatesList
 }
 
 export default convertMoney
