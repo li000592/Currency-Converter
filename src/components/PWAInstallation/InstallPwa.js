@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react"
+import { NavLink } from 'react-router-dom'
+import './InstallPwa.css'
 
 
 const InstallPWA = () => {
@@ -28,8 +30,12 @@ const InstallPWA = () => {
     return null;
   }
   return (
-    <button
-      className="link-button"
+    <div className='pwaInstallPrompt'>
+      <div className='promptCard'>
+        <p className ='promptTxt'>Installing uses almost no storage and process quick way to return to this app</p>
+      <div className ='promptAction'>
+      <button
+      className="pwaButton"
       id="setup_button"
       aria-label="Install app"
       title="Install app"
@@ -37,6 +43,16 @@ const InstallPWA = () => {
     >
       Install
     </button>
+
+    <NavLink to='./' className='later'> Later </NavLink>
+      </div>
+      
+      </div>
+
+
+    </div>
+
+
   )
 }
 

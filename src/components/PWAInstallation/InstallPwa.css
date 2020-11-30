@@ -1,0 +1,37 @@
+.pwaInstallPrompt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e1eaffdd;
+    
+}
+
+.promptTxt{
+    width: 90%;
+    margin: 15px auto;
+}
+
+.promptCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+.promptAction{
+    margin-bottom: 2vh;
+}
+.pwaButton{
+    margin-right:10vw;
+    border: 0;
+    height: 2rem;
+    width: 4rem;
+    background-color: #2f58a2;
+    color: #ffffff;
+}
+.later{
+    height: 2rem;
+    width: 4rem;
+    color: #2f58a2;
+}
