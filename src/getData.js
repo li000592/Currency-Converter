@@ -3,7 +3,6 @@ const KEY = '34864e2bc429d71698ea8a4054622036'
 
 export const getRatesData = async () => {
   const url = `${BASIC_URL}latest?access_key=${KEY}`
-  console.log(url)
   const response = await fetch(url)
   if (!response.ok) throw new Error(response.statusText)
   return response.json()
