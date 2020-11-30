@@ -62,7 +62,7 @@ function App() {
           </Route>
 
           <Route path="/addNew">
-            <AddCountryPage />
+            <AddCountryPage setPickedCountryList={setPickedCountryList} />
           </Route>
         </Switch>
       </React.Suspense>
