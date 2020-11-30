@@ -4,33 +4,21 @@ import './App.css'
 import InstallPWA from './components/PWAInstallation/InstallPwa'
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import useLocalStorage from './useLocalStorage'
-const AddCountryPage = React.lazy(() =>
-  import('./components/AddCurrencyPage/AddCountryPage'),
-)
-const ExchangeCurrencyListPage = React.lazy(() =>
-  import('./components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'),
-)
+const AddCountryPage = React.lazy(() => import('./components/AddCurrencyPage/AddCountryPage'))
+const ExchangeCurrencyListPage = React.lazy(() => import('./components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'))
 
-const initializeRatesList = [
-  {shortName: 'CAD', fullName: 'Canadian Dollar', exchangeNumber: 1.552062},
-  {shortName: 'HKD', fullName: 'Hong Kong Dollar', exchangeNumber: 9.191995},
-  {shortName: 'TWD', fullName: 'New Taiwan Dollar', exchangeNumber: 33.842415},
-]
 const initializePickedCountryList = [
-  {shortName: 'CAD', index: 0},
-  {shortName: 'HKD', index: 1},
-  {shortName: 'TWD', index: 2},
-  {shortName: 'CAD', index: 3},
-  {shortName: 'HKD', index: 4},
-  {shortName: 'TWD', index: 5},
+  {shortName: 'CAD', index: 27},
+  {shortName: 'HKD', index: 58},
+  {shortName: 'TWD', index: 145},
+  {shortName: 'USD', index: 149},
+  {shortName: 'CNY', index: 32},
+  {shortName: 'COP', index: 33},
 ]
 function App() {
   const [ratesList, setRatesList] = useState([])
   const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 0)
-  const [pickedCountryList, setPickedCountryList] = useState(
-    initializePickedCountryList,
-  )
-  console.log(ratesList)
+  const [pickedCountryList, setPickedCountryList] = useState(initializePickedCountryList)
   useEffect(() => {
     if (loginCount === 3) {
       console.log('promo')
@@ -38,10 +26,10 @@ function App() {
     SetLoinCount(count => count + 1)
   }, [])
   const [inputValue, setInputValue] = useState({
-    shortName: 'hkd',
-    exchangeNumber: 100,
+    shortName: 'CAD',
+    exchangeNumber: 1.0,
   })
-  useEffect(() => {}, [ratesList])
+
   useEffect(() => {
     console.log(inputValue)
     convertMoney(inputValue.shortName, inputValue.exchangeNumber).then(list => {
@@ -53,14 +41,9 @@ function App() {
       <React.Suspense fallback={<p>Loading...</p>}>
         <Switch>
           <Route path="/" exact>
-            <ExchangeCurrencyListPage
-              ratesList={ratesList}
-              setInputValue={setInputValue}
-              pickedCountryList={pickedCountryList}
-            />
+            <ExchangeCurrencyListPage ratesList={ratesList} setInputValue={setInputValue} pickedCountryList={pickedCountryList} />
             <InstallPWA />
           </Route>
-
           <Route path="/addNew">
             <AddCountryPage setPickedCountryList={setPickedCountryList} />
           </Route>

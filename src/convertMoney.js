@@ -1,11 +1,13 @@
 import getData, {getCurrenciesLongName} from './getData'
 
 export async function convertMoney(shortName, setNumber) {
+  console.log(shortName, setNumber)
   const ratesList = await convertData()
   shortName = shortName.toUpperCase()
+  console.log(ratesList)
   const index = ratesList.findIndex(obj => obj.shortName === shortName)
   if (index === -1) {
-    console.warn('FIX IT LATER')
+    return console.warn('FIX IT LATER')
   }
   const percentage = setNumber / ratesList[index].exchangeNumber
   return ratesList.map(rate => {
@@ -27,8 +29,10 @@ export const convertData = async () => {
   //let ratesList = await getData().then(repsonse => JSON.parse(repsonse).rates)
   let ratesList = await getData().then(repsonse => JSON.parse(repsonse))
   console.log(ratesList)
-  const key = Object.keys(ratesList)
-  const values = Object.values(ratesList)
+  const key = await Object.keys(ratesList)
+  console.log(key)
+  const values = await Object.values(ratesList)
+  console.log(values)
   for (let i = 0; i < key.length; i++) {
     const shortName = key[i]
     newRatesList.push({
