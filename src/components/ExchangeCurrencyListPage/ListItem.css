@@ -38,3 +38,7 @@ h3 {
 .exchangeNumber::placeholder {
   color: black;
 }
+.inputValue input {
+  text-align: right;
+  width: 180px;
+}

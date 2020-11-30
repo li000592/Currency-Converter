@@ -21,7 +21,7 @@ function ListItem(props) {
       document
         .querySelectorAll('.exchangeNumber')
         .forEach(element => (element.value = ''))
-    }, 1000)
+    }, 5000)
   }
   return (
     <div className="card">
