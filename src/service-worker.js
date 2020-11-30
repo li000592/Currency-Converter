@@ -110,8 +110,15 @@ registerRoute(
 )
 
 registerRoute(
-  new RegExp('http://data.fixer.io/api/'),
+  new RegExp('https://data.fixer.io/api/'),
   new StaleWhileRevalidate({
     cacheName: 'external-api1',
+  }),
+)
+
+registerRoute(
+  new RegExp('https://data.fixer.io/api/symbols'),
+  new StaleWhileRevalidate({
+    cacheName: 'external-api2',
   }),
 )
