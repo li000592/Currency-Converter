@@ -18,6 +18,7 @@ function CurrencyList(props) {
       <CurrencyListItem
         item={item}
         setPickedCountryList={props.setPickedCountryList}
+        key={item.index}
       />
     )
   })
