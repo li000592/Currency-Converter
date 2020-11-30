@@ -184,7 +184,6 @@ export const getCurrenciesLongName = async () => {
   const url = BASIC_URL + 'symbols?access_key=' + KEY
   const response = await fetch(url)
   if (!response.ok) throw new Error(response.statusText)
-  localStorage.setItem('getCurrenciesLongName', JSON.stringify(response))
   return response.json()
 }
 export const getData = async () => {
@@ -205,8 +204,8 @@ export const getData = async () => {
     const data = await getRatesData()
     const rateList = await data.rates
     // save new data in localStorage
-    localStorage.setItem('updateTime', data.date)
-    localStorage.setItem('ratesList', JSON.stringify(data.rates))
+    window.localStorage.setItem('updateTime', data.date)
+    window.localStorage.setItem('ratesList', JSON.stringify(data.rates))
     return JSON.stringify(data)
   }
 }
