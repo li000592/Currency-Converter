@@ -41,7 +41,7 @@ function ListItem(props) {
           type="tel"
           className="exchangeNumber"
           id={props.shortName}
-          placeholder={props.exchangeNumber}
+          placeholder={Math.round(props.exchangeNumber * 100) / 100}
           onChange={OB}
         ></input>
       </div>
