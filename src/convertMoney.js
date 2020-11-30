@@ -16,14 +16,20 @@ export async function convertMoney(shortName, setNumber) {
 export const convertData = async () => {
   let newRatesList = []
   const currencyFullName = await getCurrenciesLongName()
-  let ratesList = await getData().then(repsonse => JSON.parse(repsonse).rates)
+  localStorage.setItem('currencyFullName', JSON.stringify(currencyFullName))
+  console.log(currencyFullName)
+  //let ratesList = await getData().then(repsonse => JSON.parse(repsonse).rates)
+  let ratesList = await getData().then(repsonse => JSON.parse(repsonse))
+  console.log(ratesList)
   const key = Object.keys(ratesList)
+  console.log(key)
   const values = Object.values(ratesList)
+  console.log(values)
   for (let i = 0; i < key.length; i++) {
     const shortName = key[i]
     newRatesList.push({
       shortName: key[i],
-      fullName: currencyFullName[shortName],
+      fullName: currencyFullName.symbols[shortName],
       exchangeNumber: values[i],
     })
   }

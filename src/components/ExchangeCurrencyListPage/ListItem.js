@@ -25,32 +25,26 @@ function ListItem(props) {
   }
   return (
     <div className="card">
+      <img
+        className="avatar"
+        src={flagImage instanceof Error ? flagPlaceholder : flagImage}
+        alt="avatar"
+      />
 
-      
-        <img
-          className="avatar"
-          src={flagImage instanceof Error ? flagPlaceholder : flagImage}
-          alt="avatar"
-        />
-
-
-      <div className ='countryName'>
+      <div className="countryName">
         <h3>{props.shortName}</h3>
-        <p className='fullName'>{props.fullName}</p>
+        <p className="fullName">{props.fullName}</p>
       </div>
 
-      <div className='inputValue'>
-    
-          <input
-            className="exchangeNumber"
-            id={props.shortName}
-            placeholder={props.exchangeNumber}
-            onChange={OB}
-          ></input>
-        
-    
+      <div className="inputValue">
+        <input
+          type="tel"
+          className="exchangeNumber"
+          id={props.shortName}
+          placeholder={props.exchangeNumber}
+          onChange={OB}
+        ></input>
       </div>
-
     </div>
   )
 }

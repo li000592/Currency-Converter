@@ -1,6 +1,5 @@
-const BASE_URL = 'http://data.fixer.io/api/'
-const API_KEY = '34864e2bc429d71698ea8a4054622036'
-
+const BASIC_URL = 'https://data.fixer.io/api/'
+const KEY = '34864e2bc429d71698ea8a4054622036'
 const longName = {
   success: true,
   symbols: {
@@ -175,13 +174,18 @@ const longName = {
   },
 }
 export const getRatesData = async () => {
-  const url = `${BASE_URL}/latest?access_key=${API_KEY}`
+  const url = `${BASIC_URL}latest?access_key=${KEY}`
+  console.log(url)
   const response = await fetch(url)
   if (!response.ok) throw new Error(response.statusText)
   return response.json()
 }
-export const getCurrenciesLongName = () => {
-  return longName.symbols
+export const getCurrenciesLongName = async () => {
+  const url = BASIC_URL + 'symbols?access_key=' + KEY
+  const response = await fetch(url)
+  if (!response.ok) throw new Error(response.statusText)
+  localStorage.setItem('getCurrenciesLongName', JSON.stringify(response))
+  return response.json()
 }
 export const getData = async () => {
   // get time

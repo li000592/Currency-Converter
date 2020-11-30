@@ -1,10 +1,15 @@
 import React, {useState, useEffect} from 'react'
-import ExchangeCurrencyListPage from './components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'
 import convertMoney from './convertMoney'
 import './App.css'
-import AddCountryPage from './components/AddCurrencyPage/AddCountryPage'
 import InstallPWA from './components/PWAInstallation/InstallPwa'
-import { HashRouter as Router, Route} from "react-router-dom"
+import {HashRouter as Router, Route, Switch} from 'react-router-dom'
+import useLocalStorage from './useLocalStorage'
+const AddCountryPage = React.lazy(() =>
+  import('./components/AddCurrencyPage/AddCountryPage'),
+)
+const ExchangeCurrencyListPage = React.lazy(() =>
+  import('./components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'),
+)
 
 const initializeRatesList = [
   {shortName: 'CAD', fullName: 'Canadian Dollar', exchangeNumber: 1.552062},
@@ -21,10 +26,17 @@ const initializePickedCountryList = [
 ]
 function App() {
   const [ratesList, setRatesList] = useState([])
+  const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 0)
   const [pickedCountryList, setPickedCountryList] = useState(
     initializePickedCountryList,
   )
-  console.log(ratesList.findIndex(i => i.shortName == 'HKD'))
+  console.log(ratesList)
+  useEffect(() => {
+    if (loginCount === 3) {
+      console.log('promo')
+    }
+    SetLoinCount(count => count + 1)
+  }, [])
   const [inputValue, setInputValue] = useState({
     shortName: 'hkd',
     exchangeNumber: 100,
@@ -38,23 +50,22 @@ function App() {
   }, [inputValue, setRatesList])
   return (
     <Router className="App">
-      <Route path='/' exact >
-       <ExchangeCurrencyListPage
-        ratesList={ratesList}
-        setInputValue={setInputValue}
-        pickedCountryList={pickedCountryList}
-      />
-      <InstallPWA />
+      <React.Suspense fallback={<p>Loading...</p>}>
+        <Switch>
+          <Route path="/" exact>
+            <ExchangeCurrencyListPage
+              ratesList={ratesList}
+              setInputValue={setInputValue}
+              pickedCountryList={pickedCountryList}
+            />
+            <InstallPWA />
+          </Route>
 
-      </Route>
-
-      <Route path='/addNew'>
-        <AddCountryPage />
-      </Route>
-
-
-
-      
+          <Route path="/addNew">
+            <AddCountryPage />
+          </Route>
+        </Switch>
+      </React.Suspense>
     </Router>
   )
 }
