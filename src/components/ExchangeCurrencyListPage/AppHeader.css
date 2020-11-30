@@ -1,0 +1,26 @@
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 3vw;
+}
+.headerTxt{
+    font-size: 1.5rem;
+    margin:4vw;
+}
+.addNewBtn{
+    display: flex;
+    background-color: #2357a8;
+    color: #ffffff;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    margin:4vw;
+    border: none;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    box-shadow: 3px 3px 10px #b7d2e6;
+}
