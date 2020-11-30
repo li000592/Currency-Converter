@@ -102,7 +102,7 @@ function checkValidServiceWorker(swUrl, config) {
   console.log('register')
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl, {
-    headers: { 'Service-Worker': 'script' , 'content-type':'javascript'},
+    headers: { 'Service-Worker': 'script' },
   })
     .then((response) => {
       console.log(response)

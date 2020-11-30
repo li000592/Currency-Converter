@@ -3,7 +3,7 @@ import ExchangeCurrencyListPage from './components/ExchangeCurrencyListPage/Exch
 import convertMoney from './convertMoney'
 import './App.css'
 import AddCountryPage from './components/AddCurrencyPage/AddCountryPage'
-// import InstallPWA from './components/PWAInstallation/InstallPwa'
+import InstallPWA from './components/PWAInstallation/InstallPwa'
 import { HashRouter as Router, Route} from "react-router-dom"
 
 const initializeRatesList = [
@@ -44,7 +44,7 @@ function App() {
         setInputValue={setInputValue}
         pickedCountryList={pickedCountryList}
       />
-      {/* <InstallPWA /> */}
+      <InstallPWA />
 
       </Route>
 
