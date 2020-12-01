@@ -1,17 +1,15 @@
-import React from "react";
+import React from 'react'
 import Search from './Search'
-import CurrencyListItem from './CurrencyListItem'
-import "./AddCountryPage.css";
+import './AddCountryPage.css'
+import CurrencyList from './CurrencyList'
 
 function AddCountryPage(props) {
-
-  return <div>
-    <Search/>
-    <CurrencyListItem />
-
-
-</div>
-
+  return (
+    <div>
+      <Search />
+      <CurrencyList setPickedCountryList={props.setPickedCountryList} ratesList={props.ratesList} />
+    </div>
+  )
 }
 
-export default AddCountryPage;
+export default AddCountryPage
