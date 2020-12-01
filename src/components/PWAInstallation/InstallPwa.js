@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import { NavLink } from 'react-router-dom'
+import './InstallPwa.css'
 
 const InstallPWA = () => {
   const [supportsPWA, setSupportsPWA] = useState(false)
@@ -27,7 +29,7 @@ const InstallPWA = () => {
     return null
   }
   return (
-    <button
+    <NavLink
       className="link-button"
       id="setup_button"
       aria-label="Install app"
@@ -35,7 +37,7 @@ const InstallPWA = () => {
       onClick={onClick}
     >
       Install
-    </button>
+    </NavLink>
   )
 }
 
