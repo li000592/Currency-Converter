@@ -7,7 +7,7 @@ function AddCountryPage(props) {
   return (
     <div>
       <Search />
-      <CurrencyList setPickedCountryList={props.setPickedCountryList} />
+      <CurrencyList setPickedCountryList={props.setPickedCountryList} ratesList={props.ratesList} />
     </div>
   )
 }

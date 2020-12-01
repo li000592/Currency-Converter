@@ -7,32 +7,24 @@ import useLocalStorage from './useLocalStorage'
 const AddCountryPage = React.lazy(() => import('./components/AddCurrencyPage/AddCountryPage'))
 const ExchangeCurrencyListPage = React.lazy(() => import('./components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'))
 
-const initializePickedCountryList = [
-  {shortName: 'CAD', index: 27},
-  {shortName: 'HKD', index: 58},
-  {shortName: 'TWD', index: 145},
-  {shortName: 'USD', index: 149},
-  {shortName: 'CNY', index: 32},
-  {shortName: 'COP', index: 33},
-]
+const initializePickedCountryList = [{index: 27}, {index: 58}, {index: 145}, {index: 149}, {index: 32}, {index: 33}]
 function App() {
   const [ratesList, setRatesList] = useState([])
   const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 0)
-  const [pickedCountryList, setPickedCountryList] = useState(initializePickedCountryList)
+  const [pickedCountryList, setPickedCountryList] = useLocalStorage('pickedCountryList', initializePickedCountryList)
   useEffect(() => {
     if (loginCount === 3) {
-      console.log('promo')
+      console.log('prompt')
     }
     SetLoinCount(count => count + 1)
   }, [])
-  const [inputValue, setInputValue] = useState({
-    shortName: 'CAD',
+  const [inputValue, setInputValue] = useLocalStorage('lastInputValue', {
+    index: 27,
     exchangeNumber: 1.0,
   })
-
+  console.log(pickedCountryList)
   useEffect(() => {
-    console.log(inputValue)
-    convertMoney(inputValue.shortName, inputValue.exchangeNumber).then(list => {
+    convertMoney(inputValue.index, inputValue.exchangeNumber).then(list => {
       setRatesList(list)
     })
   }, [inputValue, setRatesList])
@@ -45,7 +37,7 @@ function App() {
             <InstallPWA />
           </Route>
           <Route path="/addNew">
-            <AddCountryPage setPickedCountryList={setPickedCountryList} />
+            <AddCountryPage setPickedCountryList={setPickedCountryList} ratesList={ratesList} />
           </Route>
         </Switch>
       </React.Suspense>
