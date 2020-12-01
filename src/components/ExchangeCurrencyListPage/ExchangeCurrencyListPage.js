@@ -17,6 +17,7 @@ function EchangeCurrencyListPage(props) {
             fullName={props.ratesList[item.index].fullName}
             exchangeNumber={props.ratesList[item.index].exchangeNumber}
             key={item.index}
+            index={item.index}
             setInputValue={props.setInputValue}
           />
         )

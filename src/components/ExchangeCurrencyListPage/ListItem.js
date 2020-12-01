@@ -13,10 +13,10 @@ function ListItem(props) {
     const isValue = valueObject.filter(element => {
       return element !== ''
     })
-    props.setInputValue({shortName: ev.target.id, exchangeNumber: isValue[0]})
+    props.setInputValue({index: ev.target.id, exchangeNumber: isValue[0]})
     setTimeout(() => {
       document.querySelectorAll('.exchangeNumber').forEach(element => (element.value = ''))
-    }, 5000)
+    }, 2000)
   }
   return (
     <div className="card">
@@ -29,7 +29,7 @@ function ListItem(props) {
         <input
           type="tel"
           className="exchangeNumber"
-          id={props.shortName}
+          id={props.index}
           placeholder={Math.round(props.exchangeNumber * 100) / 100}
           onChange={inputChanged}
         ></input>

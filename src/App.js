@@ -22,6 +22,7 @@ function App() {
     index: 27,
     exchangeNumber: 1.0,
   })
+  console.log(inputValue)
   console.log(pickedCountryList)
   useEffect(() => {
     convertMoney(inputValue.index, inputValue.exchangeNumber).then(list => {

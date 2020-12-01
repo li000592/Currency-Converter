@@ -6,7 +6,7 @@ export async function convertMoney(index, setNumber) {
     ratesList = JSON.parse(ratesList)
   }
   console.log(ratesList)
-
+  console.log(index)
   const percentage = setNumber / ratesList[index].exchangeNumber
   return ratesList.map(rate => {
     return {
