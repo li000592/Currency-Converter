@@ -10,9 +10,10 @@ const ExchangeCurrencyListPage = React.lazy(() => import('./components/ExchangeC
 const initializePickedCountryList = [{index: 27}, {index: 58}, {index: 145}, {index: 149}, {index: 32}, {index: 33}]
 function App() {
   const [ratesList, setRatesList] = useState([])
-  const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 0)
+  const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 1)
   const [pickedCountryList, setPickedCountryList] = useLocalStorage('pickedCountryList', initializePickedCountryList)
   useEffect(() => {
+    console.log(loginCount)
     if (loginCount === 3) {
       console.log('prompt')
     }
