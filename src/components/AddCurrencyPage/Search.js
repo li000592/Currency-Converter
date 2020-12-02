@@ -4,7 +4,6 @@ import searchIcon from './searchIcon.svg'
 
 function Search(props) {
   const serachChanged = ev => {
-    console.log(document.querySelector('.searchInput').value)
     props.setSearchInput(document.querySelector('.searchInput').value)
   }
   return (

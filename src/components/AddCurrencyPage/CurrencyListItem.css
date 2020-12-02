@@ -1,13 +1,13 @@
-/* .card {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    margin:0 auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    justify-content: space-between;
-    align-items: center;
-  } */
+.card {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
 .countryName {
   display: flex;
   flex-direction: column;
