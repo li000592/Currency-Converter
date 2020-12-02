@@ -5,8 +5,6 @@ export async function convertMoney(index, setNumber) {
   if (typeof ratesList === 'string') {
     ratesList = JSON.parse(ratesList)
   }
-  console.log(ratesList)
-  console.log(index)
   const percentage = setNumber / ratesList[index].exchangeNumber
   return ratesList.map(rate => {
     return {
@@ -18,15 +16,11 @@ export async function convertMoney(index, setNumber) {
   })
 }
 export const convertData = async () => {
-  // get time
   const dateNow = new Date()
   const updateTime = localStorage.getItem('updateTime')
-  // getMoth start from 0, so +1
   const convertNow = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`
-  // get localStorage
   const ratesList = localStorage.getItem('ratesList')
   if (ratesList !== null && updateTime === convertNow) {
-    // use localstorage rateslist.
     return ratesList
   } else {
     let newRatesList = []

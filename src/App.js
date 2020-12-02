@@ -8,13 +8,16 @@ const AddCountryPage = React.lazy(() => import('./components/AddCurrencyPage/Add
 const ExchangeCurrencyListPage = React.lazy(() => import('./components/ExchangeCurrencyListPage/ExchangeCurrencyListPage'))
 
 const initializePickedCountryList = [{index: 27}, {index: 58}, {index: 145}, {index: 149}, {index: 32}, {index: 33}]
+
 function App() {
+  const [displayPromot, setDisplayPromot] = useState('none')
   const [ratesList, setRatesList] = useState([])
-  const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 0)
+  const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 1)
   const [pickedCountryList, setPickedCountryList] = useLocalStorage('pickedCountryList', initializePickedCountryList)
   useEffect(() => {
     if (loginCount === 3) {
-      console.log('prompt')
+      setDisplayPromot('block')
+      return
     }
     SetLoinCount(count => count + 1)
   }, [])
@@ -22,8 +25,7 @@ function App() {
     index: 27,
     exchangeNumber: 1.0,
   })
-  console.log(inputValue)
-  console.log(pickedCountryList)
+
   useEffect(() => {
     convertMoney(inputValue.index, inputValue.exchangeNumber).then(list => {
       setRatesList(list)
@@ -35,12 +37,12 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <ExchangeCurrencyListPage ratesList={ratesList} setInputValue={setInputValue} pickedCountryList={pickedCountryList} />
-            <InstallPWA />
           </Route>
           <Route path="/addNew">
             <AddCountryPage setPickedCountryList={setPickedCountryList} ratesList={ratesList} />
           </Route>
         </Switch>
+        <InstallPWA display={displayPromot} SetLoinCount={SetLoinCount} />
       </React.Suspense>
     </Router>
   )

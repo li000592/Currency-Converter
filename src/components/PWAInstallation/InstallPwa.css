@@ -1,37 +1,38 @@
-.pwaInstallPrompt{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e1eaffdd;
-    
+.pwaInstallPrompt {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: #e1eaffdd;
+  opacity: 0.8;
 }
 
-.promptTxt{
-    width: 90%;
-    margin: 15px auto;
+.promptTxt {
+  width: 90%;
+  margin: 15px auto;
 }
 
-.promptCard{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    
-
+.promptCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
 }
-.promptAction{
-    margin-bottom: 2vh;
+.promptAction {
+  margin-bottom: 2vh;
 }
-.pwaButton{
-    margin-right:10vw;
-    border: 0;
-    height: 2rem;
-    width: 4rem;
-    background-color: #2f58a2;
-    color: #ffffff;
+.pwaButton {
+  margin-right: 10vw;
+  border: 0;
+  height: 2rem;
+  width: 4rem;
+  background-color: #2f58a2;
+  color: #ffffff;
 }
-.later{
-    height: 2rem;
-    width: 4rem;
-    color: #2f58a2;
+.later {
+  height: 2rem;
+  width: 4rem;
+  color: #2f58a2;
 }

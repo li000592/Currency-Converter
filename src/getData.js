@@ -14,25 +14,10 @@ export const getCurrenciesLongName = async () => {
   return response.json()
 }
 export const getData = async () => {
-  // // get time
-  // const dateNow = new Date()
-  // const updateTime = localStorage.getItem('updateTime')
-  // // getMoth start from 0, so +1
-  // const convertNow = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1}-${dateNow.getDate()}`
-  // // get localStorage
-  // const localData = localStorage.getItem('ratesList')
-  // // if it has data update today, return it
-  // if (localData && updateTime === convertNow) {
-  //   return localData
-  // } else {
-  //   // else get new data and save it in localStorage
   const data = await getRatesData()
   const rateList = await data.rates
-  // save new data in localStorage
   window.localStorage.setItem('updateTime', data.date)
-  // window.localStorage.setItem('ratesList', JSON.stringify(data.rates))
   return JSON.stringify(rateList)
-  // }
 }
 
 export default getData
