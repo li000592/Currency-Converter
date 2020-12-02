@@ -10,13 +10,14 @@ const ExchangeCurrencyListPage = React.lazy(() => import('./components/ExchangeC
 const initializePickedCountryList = [{index: 27}, {index: 58}, {index: 145}, {index: 149}, {index: 32}, {index: 33}]
 
 function App() {
-  const [displayPromot, setDisplayPromot] = useState('none')
+  const [displayPromptInstallation, setDisplayPromptInstallation] = useState('none')
   const [ratesList, setRatesList] = useState([])
   const [loginCount, SetLoinCount] = useLocalStorage('loginCount', 1)
   const [pickedCountryList, setPickedCountryList] = useLocalStorage('pickedCountryList', initializePickedCountryList)
   useEffect(() => {
     if (loginCount === 3) {
-      setDisplayPromot('block')
+      setDisplayPromptInstallation('block')
+      console.log("debug: It should shows 'block' --", displayPromptInstallation)
       return
     }
     SetLoinCount(count => count + 1)
@@ -42,7 +43,7 @@ function App() {
             <AddCountryPage setPickedCountryList={setPickedCountryList} ratesList={ratesList} />
           </Route>
         </Switch>
-        <InstallPWA display={displayPromot} SetLoinCount={SetLoinCount} />
+        <InstallPWA display={displayPromptInstallation} SetLoinCount={SetLoinCount} />
       </React.Suspense>
     </Router>
   )
