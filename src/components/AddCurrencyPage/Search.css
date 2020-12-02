@@ -1,31 +1,29 @@
-.searchPage{
-    height: 7rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-  }
-  
-  form{
-    position: relative;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 3px 3px 10px #e2edfb;
-  }
-  input{
-    width: 100%; 
-    padding: 10px; 
-    text-align: left;
-    border: none;
-  
-  }
-  
-  .searchIcon{
-    padding: 15px; 
-    min-width: 30px; 
-    text-align: center;
-  
-  }
+.searchPage {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+
+form {
+  position: relative;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #e2edfb;
+}
+input {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  border: none;
+}
+
+.searchIcon {
+  padding: 15px;
+  min-width: 30px;
+  text-align: center;
+}

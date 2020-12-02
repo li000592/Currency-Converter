@@ -5,10 +5,6 @@ import CurrencyList from './CurrencyList'
 
 function AddCountryPage(props) {
   const [searchInput, setSearchInput] = React.useState('')
-  const KK = 'CADBBB'
-  console.log(KK)
-  console.log(KK.includes('CAD'))
-  console.log(searchInput)
   let fillterList = props.ratesList
   if (searchInput.length > 1) {
     const findList = props.ratesList.filter(item => item.shortName.includes(searchInput) || item.fullName.includes(searchInput))
