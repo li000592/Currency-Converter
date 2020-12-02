@@ -1,9 +1,8 @@
 import React from 'react'
 import './ListItem.css'
+import flagPlaceholder from '../../flagPlaceholder.svg'
 
 function ListItem(props) {
-  const flagPlaceholder =
-    'https://static.wikia.nocookie.net/politicsandwar/images/d/d0/Placeholder_Flag.svg/revision/latest?cb=20181107092148'
   const flagImage = 'https://www.countryflags.io/' + props.shortName.slice(0, 2) + '/flat/64.png'
   function inputChanged(ev) {
     const valueObject = []
@@ -18,9 +17,12 @@ function ListItem(props) {
       document.querySelectorAll('.exchangeNumber').forEach(element => (element.value = ''))
     }, 2000)
   }
+  const onError = ev => {
+    ev.target.src = flagPlaceholder
+  }
   return (
     <div className="card">
-      <img className="avatar" src={flagImage instanceof Error ? flagPlaceholder : flagImage} alt="avatar" />
+      <img onError={onError} className="avatar" src={flagImage} alt="avatar" />
       <div className="countryName">
         <h3>{props.shortName}</h3>
         <p className="fullName">{props.fullName}</p>
