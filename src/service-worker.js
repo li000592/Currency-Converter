@@ -59,7 +59,7 @@ registerRoute(
     cacheName: 'images',
     plugins: [
       new ExpirationPlugin({
-        maxEntries: 60,
+        maxEntries: 50,
         maxAgeSeconds: 14 * 24 * 60 * 60, // 14 Days
       }),
     ],
@@ -102,8 +102,7 @@ registerRoute(
 )
 
 registerRoute(
-  ({request}) =>
-    request.destination === 'script' || request.destination === 'style',
+  ({request}) => request.destination === 'script' || request.destination === 'style',
   new StaleWhileRevalidate({
     cacheName: 'static-resources',
   }),
