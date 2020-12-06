@@ -4,13 +4,12 @@ import {NavLink} from 'react-router-dom'
 import flagPlaceholder from '../../flagPlaceholder.svg'
 
 function CurrencyListItem(props) {
-  const flagImage = 'https://www.countryflags.io/' + props.item.shortName.slice(0, 2) + '/flat/64.png'
+  const flagImage = `https://flagcdn.com/w160/${props.item.shortName.slice(0, 2).toLowerCase()}.png`
+  // const flagImage = 'https://www.countryflags.io/' + props.item.shortName.slice(0, 2) + '/flat/64.png'
   const addNewCurrency = ev => {
     props.setPickedCountryList(list => list.concat({index: ev.target.id}))
   }
-  // const onError = ev => {
-  //   ev.target.src = flagPlaceholder
-  // }
+
   return (
     <div className="card">
       <img onError={ev => (ev.target.src = flagPlaceholder)} className="avatar" src={flagImage} alt="avatar" />

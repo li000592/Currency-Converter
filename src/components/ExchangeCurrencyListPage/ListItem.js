@@ -3,7 +3,7 @@ import './ListItem.css'
 import flagPlaceholder from '../../flagPlaceholder.svg'
 
 function ListItem(props) {
-  const flagImage = 'https://www.countryflags.io/' + props.shortName.slice(0, 2) + '/flat/64.png'
+  const flagImage = `https://flagcdn.com/w160/${props.shortName.slice(0, 2).toLowerCase()}.png`
   function inputChanged(ev) {
     const valueObject = []
     document.querySelectorAll('.exchangeNumber').forEach(div => {

@@ -61,6 +61,7 @@ h3 {
 }
 
 .avatar {
-  height: 65px;
-  min-width: 65px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 65px;
 }
