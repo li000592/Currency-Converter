@@ -32,7 +32,7 @@ function ListItem(props) {
           type="tel"
           className="exchangeNumber"
           id={props.index}
-          placeholder={Math.round(props.exchangeNumber * 100) / 100}
+          placeholder={Number.parseFloat(props.exchangeNumber).toFixed(2)}
           onChange={inputChanged}
         ></input>
       </div>
