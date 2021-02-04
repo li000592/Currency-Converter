@@ -1,4 +1,4 @@
-# Currency Converter Web App
+# Currency Converter PWA App
 
 ## Status: COMPLETED
 
