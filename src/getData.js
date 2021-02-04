@@ -1,4 +1,4 @@
-const BASIC_URL = 'https://data.fixer.io/api/'
+const BASIC_URL = 'http://data.fixer.io/api/'
 const KEY = '34864e2bc429d71698ea8a4054622036'
 
 export const getRatesData = async () => {
