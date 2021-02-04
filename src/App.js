@@ -17,11 +17,10 @@ function App() {
   useEffect(() => {
     if (loginCount === 3) {
       setDisplayPromptInstallation('block')
-      console.log("debug: It should shows 'block' --", displayPromptInstallation)
       return
     }
     SetLoinCount(count => count + 1)
-  }, [])
+  }, [SetLoinCount, displayPromptInstallation, loginCount])
   const [inputValue, setInputValue] = useLocalStorage('lastInputValue', {
     index: 27,
     exchangeNumber: 1.0,
